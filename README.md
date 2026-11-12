@@ -9,6 +9,7 @@ Use Node.js 22 and npm. Run `npm ci`, then `npm run dev` and open the printed UR
 ```sh
 npm run lint
 npm run check:assets
+npm run test:enquiry
 npm run build
 npm run typecheck
 npm audit --omit=dev --audit-level=high
@@ -32,9 +33,9 @@ Official documentation: https://vercel.com/docs/frameworks/full-stack/nextjs
 - WhatsApp / call: +91 9628568807
 - Email: satyambasti9554@gmail.com
 
-The form validates required inputs and prepares a WhatsApp message for the visitor to review and send. It does **not** automatically send email, save leads, reserve services, or confirm bookings. Email links launch the user's email app. No credentials, analytics, payment gateway, or server lead database are enabled. No live email delivery has been tested.
+The form validates required inputs and offers WhatsApp (the visitor must tap Send). With complete server configuration, it also submits an email notification to the business inbox. It never confirms a booking. No live email delivery has been verified yet.
 
-Automated email is a later integration: add server validation and sanitization, anti-spam, shared rate limiting, idempotency, proper error states, and provider configuration. Keep secrets in server environment variables, verify the sender domain, and perform a real delivery test before claiming email works.
+The email API includes server validation, a honeypot, shared rate limiting, idempotency, and honest error states. Follow **docs/email-setup.md** to configure Resend and Redis in server-only Vercel environment variables, verify the sender domain, and complete a real inbox test. Without configuration the primary form action remains WhatsApp.
 
 ## Images and publishing precautions
 
@@ -46,6 +47,6 @@ Source credits: `docs/image-sources.md`. The Ayodhya photograph was supplied by 
 
 `.env*`, `.tools`, `.next`, `node_modules`, `.vercel`, logs, and local artifacts are excluded. `.env.example` contains no secrets. Security headers disable framing and MIME sniffing and restrict sensitive browser features. Do not collect identity documents or payment information through the form.
 
-The owner should review the privacy and travel terms against actual correspondence retention, supplier arrangements, and booking terms before publication. Update those policies and handling before enabling analytics, server email, or a database.
+The owner should review the privacy and travel terms against actual correspondence retention, supplier arrangements, and booking terms before publication. Review the documented email-provider and short-lived fingerprint handling before enabling email. Update the policies before adding analytics or full lead storage.
 
-This is deployable as the current contact and enquiry website. All 23 pages, automated email, Hindi routes, and analytics from the longer-term brief are not complete. Browser/device QA and actual communication handoffs still require preview review; a passing build is not a substitute.
+This is deployable as the current contact and enquiry website. The full 23-page site, Hindi routes, and analytics from the longer-term brief remain incomplete. Email code is integrated but requires provider configuration and a real delivery test. Browser/device QA and actual communication handoffs still require preview review; a passing build is not a substitute.

@@ -17,6 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run check:assets
+      - run: npm run test:enquiry
       - run: npm run build
       - run: npm run typecheck
       - run: npm audit --omit=dev --audit-level=high
