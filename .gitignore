@@ -9,3 +9,4 @@ out/
 .vercel/
 .artifacts/
 *.log
+public/images/*.jpg
