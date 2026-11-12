@@ -8,7 +8,8 @@
                     "start":  "next start",
                     "lint":  "eslint .",
                     "typecheck":  "tsc --noEmit",
-                    "check:assets":  "node scripts/check-assets.mjs"
+                    "check:assets":  "node scripts/check-assets.mjs",
+                    "test:enquiry":  "node --experimental-strip-types --test tests/enquiry.test.mjs"
                 },
     "dependencies":  {
                          "next":  "^16.0.0",

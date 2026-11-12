@@ -1,5 +1,13 @@
 # Deployment review — 12 November 2026
 
+## Enquiry reliability update
+
+Added a server-side email API plus a WhatsApp fallback. Twelve API tests pass using injected mock providers: validation, HTML escaping, malformed/oversized requests, origin protection (including localhost normalization), missing credentials, notification recipient, duplicate retry, provider failure, stable retry payload, receipt-update failure, and shared rate limiting.
+
+Chrome form checks passed on a mobile viewport using intercepted email responses and WhatsApp navigation: native required fields, retained entries after errors, retry request ID reuse, duplicate-click suppression, accepted state, all WhatsApp fields and the correct number. The real local API reports email unavailable and returns an honest 503 when credentials are absent. No real email or WhatsApp message was sent during these tests.
+
+Latest lint, TypeScript and production build passed. Email inbox delivery is still **unverified** and requires the configuration and real test in `docs/email-setup.md`. Previous release checks below remain historical context.
+
 ## Passed locally
 
 - ESLint: no errors or warnings.
@@ -23,4 +31,3 @@ Original Ayodhya upload was about 2.9 MB. The optimized Ayodhya WebP is about 17
 - Full destination routes, Hindi pages and automated lead processing are future work. This PR delivers the current contact/enquiry website, not the entire original phased brief.
 
 Screenshots are stored locally in `.artifacts/home-390.png`, `home-768.png`, and `home-1440.png`; they are excluded from GitHub. The local browser check helper is under `.tools` and is not a production dependency. GitHub Actions repeats source, asset, build, type and production-audit checks.
-
