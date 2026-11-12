@@ -1,5 +1,9 @@
 # Photography sources
 
+## Logo
+
+The transparent Satyam logo was supplied by the user as `Satyam Sacred Travel Logo.png` and is published unchanged as `public/images/satyam-logo.png`. Next.js optimizes delivery; its 3:1 aspect ratio is preserved in the header and footer.
+
 - Current Ayodhya photograph: Ayush Srivastava, Unsplash, supplied by the user (`ayush-srivastava-RGgLRaWfHrw-unsplash.jpg`). Optimized and published as `ayodhya-saryu.webp`.
 
 Locally stored for reliable previews. Review licenses and editorial selection before launch.
